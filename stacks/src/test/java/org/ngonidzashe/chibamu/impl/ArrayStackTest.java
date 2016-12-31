@@ -33,6 +33,8 @@ public class ArrayStackTest {
 		stack.push(name);
 		stack.push(lastName);
 		stack.push(middleName);
+		assertEquals(3, stack.size());
+
 		String lastItem = stack.pop();
 		assertEquals(middleName, lastItem);
 		assertEquals(2, stack.size());
@@ -44,7 +46,8 @@ public class ArrayStackTest {
 		Stack<Long> stack = new ArrayStack<>(10);
 		stack.push(20L);
 		assertFalse(stack.isEmpty());
-		stack.top();
+		long item = stack.top();
+		assertEquals(20, item);
 		assertFalse(stack.isEmpty());
 
 	}

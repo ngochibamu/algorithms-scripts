@@ -10,23 +10,28 @@ public class ArrayStack<T> implements Stack<T> {
 
 	private int capacity;
 	private T[] data;
-	private int size;
+	private int size = -1;
 
 	public ArrayStack(int capacity){
 		this.capacity = capacity;
-		data = (T[]) new Object(capacity);
+		data = (T[]) new Object[capacity];
 		size = 0;
 	}
 
 	public void push(T element){
 		if(size == capacity)
-			throw IllegalStateException("Cannot insert into already full stack");
+			throw new IllegalStateException("Cannot insert into already full stack");
 
 		data[++size] = element;
 	}
 
 	public T pop(){
-		return null;
+		if(isEmpty())
+			return null;
+
+		T value = data[size];
+		data[size--] = null;
+		return value;
 	}
 
 	public int size(){
@@ -34,10 +39,12 @@ public class ArrayStack<T> implements Stack<T> {
 	}
 
 	public boolean isEmpty(){
-		return false;
+		return size == -1;
 	}
 
 	public T top() {
-		return null;
+		if(isEmpty())
+			return null;
+		return data[size];
 	}
 }

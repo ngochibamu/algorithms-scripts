@@ -5,14 +5,7 @@ import java.util.HashSet;
 public class Permutations {
 	
 	public static void main(String[] args){
-
-		String str = "UVWX";
-		//permutation("",str);
-		char ch = 'a';
-		int chInt = ch - 'a';
-		System.out.println("chInt="+chInt);
-
-		//System.out.println(crunchifyPermutation(str));
+		Permutations.permutation("","VXYZ");
 	}
 
 
